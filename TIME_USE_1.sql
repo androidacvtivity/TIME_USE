@@ -1,7 +1,8 @@
         SELECT     
                    FC.CUIIO,
                    FC.CUIIO_VERS,
-                   R.DENUMIRE
+                   R.DENUMIRE,
+                   R.CUATM
                    
               FROM(    
       SELECT FC.CUIIO,
@@ -24,7 +25,9 @@
                                     
                                     WHERE 
                                     
-                                    R.DENUMIRE LIKE 'VU%'
+                                 --   R.DENUMIRE LIKE 'VU%'
+                                 
+                                 R.CUATM IN ('1000000')
                                     
                                     ORDER BY
                                     R.DENUMIRE 
