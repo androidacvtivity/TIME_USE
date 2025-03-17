@@ -25,7 +25,7 @@
                                     
                                     WHERE 
                                     
-                                 R.DENUMIRE LIKE 'V%'
+                                 R.DENUMIRE LIKE 'SIR%'
                                  AND 
                                  R.CUATM IN ('0000000')
                                     

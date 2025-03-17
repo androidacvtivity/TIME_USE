@@ -4,7 +4,8 @@
                    FC.CUIIO_VERS,
                    R.DENUMIRE,
                    R.CUATM,
-                   RR.ID_USER
+                   RR.ID_USER,
+                   RR.USER_NAME
                    
               FROM(    
       SELECT FC.CUIIO,
@@ -26,19 +27,23 @@
                                     
                                     INNER JOIN (
                                       SELECT
-  ID_USER,
-  USER_NAME,
+  DISTINCT L.ID_USER,
+  L.USER_NAME,
   
   TRIM(UPPER(NAME||' '||SURNAME)) DENUMIRE
     
-  FROM CIS2.SYS_USER
+  FROM CIS2.SYS_USER L
+        INNER JOIN CIS2.SYS_USER_ACCES R ON R.ID_USER = L.ID_USER  
+        
+        WHERE 
+        R. FORM IN (102)
                                     )  RR ON TRIM(RR.DENUMIRE) = TRIM(R.DENUMIRE)
                                     
                                     
                              
                                   
                     WHERE 
-                   R.DENUMIRE LIKE '%SOCOL%'
+                   R.DENUMIRE LIKE '%SIR%'
                  --   R.CUATM IN ('0100000')
                      ORDER BY
                    R.DENUMIRE      
