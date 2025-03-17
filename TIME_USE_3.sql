@@ -1,7 +1,9 @@
         SELECT     
+                DISTINCT    
                    FC.CUIIO,
                    FC.CUIIO_VERS,
-                   R.DENUMIRE
+                   R.DENUMIRE,
+                   RR.ID_USER
                    
               FROM(    
       SELECT FC.CUIIO,
@@ -21,14 +23,22 @@
                             INNER JOIN CIS2.RENIM R ON R.CUIIO = FC.CUIIO 
                                     AND R.CUIIO_VERS = FC.CUIIO_VERS 
                                     
-                                    INNER JOIN CIS2.SYS_USER 
+                                    INNER JOIN (
+                                      SELECT
+  ID_USER,
+  USER_NAME,
+  
+  TRIM(UPPER(NAME||' '||SURNAME)) DENUMIRE
+    
+  FROM CIS2.SYS_USER
+                                    )  RR ON TRIM(RR.DENUMIRE) = TRIM(R.DENUMIRE)
                                     
                                     
-                                    
-                                    
---                                    WHERE 
---                                    
---                                    R.DENUMIRE LIKE 'VU%'
---                                    
---                                    ORDER BY
---                                    R.DENUMIRE 
+                             
+                                  
+                    WHERE 
+                    R.DENUMIRE LIKE '%VU%'
+                    
+                     ORDER BY
+                   R.DENUMIRE      
+

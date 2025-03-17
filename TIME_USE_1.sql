@@ -20,3 +20,11 @@
              
                             INNER JOIN CIS2.RENIM R ON R.CUIIO = FC.CUIIO 
                                     AND R.CUIIO_VERS = FC.CUIIO_VERS
+                                    
+                                    
+                                    WHERE 
+                                    
+                                    R.DENUMIRE LIKE 'VU%'
+                                    
+                                    ORDER BY
+                                    R.DENUMIRE 
