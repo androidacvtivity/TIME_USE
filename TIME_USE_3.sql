@@ -3,6 +3,7 @@
                    FC.CUIIO,
                    FC.CUIIO_VERS,
                    R.DENUMIRE,
+                   R.CUATM,
                    RR.ID_USER
                    
               FROM(    
@@ -37,8 +38,8 @@
                              
                                   
                     WHERE 
-                    R.DENUMIRE LIKE '%VU%'
-                    
+--                    R.DENUMIRE LIKE '%VU%'
+                    R.CUATM IN ('1000000')
                      ORDER BY
                    R.DENUMIRE      
 
