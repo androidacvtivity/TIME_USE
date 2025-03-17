@@ -38,8 +38,8 @@
                              
                                   
                     WHERE 
---                    R.DENUMIRE LIKE '%VU%'
-                    R.CUATM IN ('1000000')
+                   R.DENUMIRE LIKE '%SOCOL%'
+                 --   R.CUATM IN ('0100000')
                      ORDER BY
                    R.DENUMIRE      
 
