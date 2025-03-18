@@ -25,9 +25,9 @@
                                     
                                     WHERE 
                                     
-                                 R.DENUMIRE LIKE 'SIR%'
-                                 AND 
-                                 R.CUATM IN ('0000000')
+                                 R.DENUMIRE LIKE 'BANT%'
+--                                 AND 
+--                                 R.CUATM IN ('0000000')
                                     
                                     ORDER BY
                                     R.DENUMIRE 
