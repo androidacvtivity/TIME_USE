@@ -43,7 +43,7 @@
                              
                                   
                     WHERE 
-                   R.DENUMIRE LIKE '%BANT%'
+                   R.DENUMIRE LIKE '%ROMA%'
                  --   R.CUATM IN ('0100000')
                      ORDER BY
                    R.DENUMIRE      

@@ -25,7 +25,7 @@
                                     
                                     WHERE 
                                     
-                                 R.DENUMIRE LIKE 'BANT%'
+                                 R.DENUMIRE LIKE 'ROM%'
 --                                 AND 
 --                                 R.CUATM IN ('0000000')
                                     
