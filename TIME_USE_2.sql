@@ -22,7 +22,7 @@ SELECT
   FROM CIS2.SYS_USER
   
   WHERE 
-  USER_NAME LIKE 'bant%'
+  USER_NAME LIKE 'topa%'
   ORDER BY
   USER_NAME;
   
