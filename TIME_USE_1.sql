@@ -25,7 +25,7 @@
                                     
                                     WHERE 
                                     
-                                 R.DENUMIRE LIKE 'ROM%'
+                                 R.DENUMIRE LIKE 'PO%'
 --                                 AND 
 --                                 R.CUATM IN ('0000000')
                                     
