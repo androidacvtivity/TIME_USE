@@ -1,0 +1,3 @@
+Nu se afiseaza autosuma in COL1 
+
+<input class="quest-input-numberbox idleField" type="text" id="102_10004_84666_D.01_1" query="false" value="11" onkeydown="return tabOnEnter (this, event)" onkeyup=" pd(this,0)" onfocus="javascript: this.className = 'focusI';" onblur="javascript: this.className = 'quest-input-numberbox idleField';">
