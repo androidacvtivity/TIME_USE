@@ -43,7 +43,7 @@
                              
                                   
                     WHERE 
-                   R.DENUMIRE LIKE '%POLINI%'
+                   R.DENUMIRE LIKE '%JAPA%'
                  --   R.CUATM IN ('0100000')
                      ORDER BY
                    R.DENUMIRE      
