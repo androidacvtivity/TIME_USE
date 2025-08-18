@@ -13,13 +13,47 @@ $(document).ready(function () {
     });
 });
 
+
+// --- Helpers adăugate pentru robustețe ---
+function normalizeNumber(raw) {
+    if (raw == null) return NaN;
+    var s = String(raw).trim();
+    if (!s) return NaN;
+    s = s.replace(/\s+/g, '').replace(',', '.').replace(/[^0-9.\-]/g, '');
+    if ((s.match(/\./g) || []).length > 1) {
+        // dacă sunt mai multe puncte, păstrăm doar primul și cifrele
+        var first = s.indexOf('.');
+        s = s.replace(/\./g, '');
+        if (first >= 0) s = s.slice(0, first) + '.' + s.slice(first);
+    }
+    var n = Number(s);
+    return isNaN(n) ? NaN : n;
+}
+
+function findFieldEl(mdid, rowID, col) {
+    var base = "102_10004_" + mdid + "_";
+    var candidates = [
+        base + rowID + "_" + col,
+        base + rowID.replace(/\s+/g, ' ') + "_" + col,
+        base + rowID.replace(/\s+/g, '') + "_" + col,
+        base + rowID.replace(/\s+/g, '_') + "_" + col,
+        base + rowID.replace(/[()]/g, '') + "_" + col
+    ];
+    for (var i=0;i<candidates.length;i++){
+        var el = document.getElementById(candidates[i]);
+        if (el) return el;
+    }
+    return null;
+}
+// --- Sfârșit helpers ---
 function f_Capitol_1004_col1() {
     // Câmpul total (verifică să existe exact acest ID în DOM)
     var totalEl = document.getElementById("102_10004_111507_Total_1");
     var sum = 0;
 
     // Listează rândurile ce intră în total (CU punct – exact cum apar în DOM!)
-    var rowIDs = ['D.01', 'D.02', 'D.03', 'D.04', '1.6-2-CMPA',
+    var rowIDs = ['D.01', 'D.02', 'D.03', 'D.04', '1.6-2-CMPA'
+        ,
         'A',
         'A.01',
         'A.02',
@@ -5996,11 +6030,10 @@ function f_Capitol_1004_col1() {
         if (!mdid || mdid === "UNKNOWN_MDID") return;
 
         // Construim ID-ul exact cum e în DOM, inclusiv punctul
-        var id = "102_10004_" + mdid + "_" + rowID + "_1";
-        var el = document.getElementById(id);
+        var el = findFieldEl(mdid, rowID, 1);
         if (!el || el.readOnly || el.disabled) return;
 
-        var v = parseInt((el.value || "").trim(), 10);
+        var v = normalizeNumber((el.value || ""));
         if (!isNaN(v)) sum += v;
     });
 
@@ -6753,7 +6786,6 @@ function getMDID(rowID) {
         '1.6-1-turism': '85320',
         '1.6-12-c': '85321',
         '1.6-16-AGR': '85322',
-        '1.6-2-CMPA': '85323',
         '1.6-2-INV (an)': '85324',
         '1.6-2-INV (trim)': '85325',
         '1.6-2-c': '85326',

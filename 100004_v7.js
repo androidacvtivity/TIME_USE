@@ -19,7 +19,8 @@ function f_Capitol_1004_col1() {
     var sum = 0;
 
     // Listează rândurile ce intră în total (CU punct – exact cum apar în DOM!)
-    var rowIDs = ['D.01', 'D.02', 'D.03', 'D.04', '1.6-2-CMPA',
+    var rowIDs = ['D.01', 'D.02', 'D.03', 'D.04', '1.6-2-CMPA'
+        ,
         'A',
         'A.01',
         'A.02',
