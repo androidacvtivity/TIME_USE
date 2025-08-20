@@ -1,13 +1,11 @@
-//// pentru CAP 10005, MDID-ul totalului este 111508
-//Creaza identic - codul sa fie culogica identica dar id si rind de ja altele din fisier 
-
-// Autosumă COL1..COL10 pentru capitolul 10004 — optimizată (incremental)
+// Autosumă COL1..COL10 pentru capitolul 10005 — optimizată (incremental)
 (() => {
-    const CAP = "10004";
-    const TOTAL_MDID = "111507";     
+    const CAP = "10005";
+    const TOTAL_MDID = "111508";           // MDID pentru Total la CAP 10005
     const MAX_COL = 10;                    // calculăm pentru coloanele 1..10
     const ID_PREFIX = `102_${CAP}_`;
-    const EVENT_NAME = "change";           // 'change' = performant; pune 'input' dacă vrei live
+    const EVENT_NAME = "change";           // 'change' e mai performant; pune 'input' pentru live
+    const DATASET_FLAG = `c${CAP}Bound`;   // marcăm input-urile deja înregistrate
 
     // Sume pe coloane (indexate 1..10)
     const sums = Array.from({ length: MAX_COL + 1 }, () => 0);
@@ -51,11 +49,11 @@
 
     // Înregistrează un input într-o singură coloană (o singură dată)
     const register = (el) => {
-        if (!isTargetInput(el) || el.dataset.c10004Bound === "1") return;
+        if (!isTargetInput(el) || el.dataset[DATASET_FLAG] === "1") return;
         const col = getColFromId(el.id);
         const v = toInt(el.value);
         el.dataset.prev = String(v);
-        el.dataset.c10004Bound = "1";
+        el.dataset[DATASET_FLAG] = "1";
         sums[col] += v;
     };
 
@@ -71,7 +69,7 @@
         if (!isTargetInput(el)) return;
 
         // dacă e nou (dinamic) – îl înregistrăm și setăm totalul coloanei
-        if (el.dataset.c10004Bound !== "1") {
+        if (el.dataset[DATASET_FLAG] !== "1") {
             register(el);
             setTotal(getColFromId(el.id));
             return;
