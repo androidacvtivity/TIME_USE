@@ -1,4 +1,4 @@
-//// pentru CAP 10005, MDID-ul totalului este 111508
+//// Acum  pentru CAP 10006, MDID-ul totalului este 111509
 //Creaza identic - codul sa fie culogica identica dar id si rind de ja altele din fisier 
 
 // Autosumă COL1..COL10 pentru capitolul 10004 — optimizată (incremental)
