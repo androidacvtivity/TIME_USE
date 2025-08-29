@@ -25,9 +25,9 @@
                                     
                                     WHERE 
                                     
-                                 R.DENUMIRE LIKE 'S%'
---                                 AND 
---                                 R.CUATM IN ('0000000')
+                             --    R.DENUMIRE LIKE 'S%'
+                               --  AND 
+                                 R.CUATM IN ('2500000')
                                     
                                     ORDER BY
                                     R.DENUMIRE 
